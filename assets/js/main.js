@@ -409,3 +409,14 @@ if (imageContainer) {
     // Autoplay
     setInterval(handleNext, 5000);
 }
+
+// Contact Form Dynamic Redirect
+const contactForm = document.querySelector('form[action^="https://formsubmit.co"]');
+if (contactForm) {
+    const nextInput = contactForm.querySelector('input[name="_next"]');
+    if (nextInput) {
+        // Sets the redirect URL to success.html relative to the current page
+        // This works for both localhost and production
+        nextInput.value = new URL('success.html', window.location.href).href;
+    }
+}
