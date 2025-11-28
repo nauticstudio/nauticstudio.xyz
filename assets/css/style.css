@@ -1,668 +1,150 @@
-@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&display=swap');
-
-:root {
-    --color-body: #9090a7;
-    --color-heading: #ebeaef;
-    --color-base: #28293d;
-    --color-base2: #1c1c27;
-    --color-brand: #ff6213;
-    --color-brand2: #ebeaef;
-    --sidebar-width: 240px;
-    --font-base: "Bai Jamjuree";
-}
-
-/* General styles */
+/* Global Styles */
 body {
-    background-color: var(--color-base2);
-    color: var(--color-body);
-    font-family: var(--font-base), sans-serif;
-    margin: 0;
-    padding: 0;
+    background-color: #050505;
+    color: #ffffff;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    color: var(--color-heading);
-    font-weight: 700;
-    font-size: clamp(1.5rem, 5vw, 2.5rem); /* Tamaño de fuente responsivo */
+.glass-nav {
+    background: rgba(5, 5, 5, 0.7);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-a {
-    text-decoration: none;
-    color: var(--color-body);
-    transition: all 0.4s ease;
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-a:hover {
-    color: var(--color-brand);
+.text-gradient {
+    background: linear-gradient(to right, #fff, #ff6213);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-img {
-    width: 100%;
-    height: auto;
+/* Animations */
+@keyframes scroll {
+    to {
+        transform: translateX(-50%);
+    }
 }
 
-.text-brand {
-    color: var(--color-brand);
+.animate-scroll {
+    animation: scroll 40s linear infinite;
 }
 
-.text-p {
-    color: #929292;
+.hover\:pause:hover {
+    animation-play-state: paused;
 }
 
-.text-star {
-    color: var(--color-brand);
-    text-align: center;
+.mask-gradient {
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
-.bg-base {
-    background-color: var(--color-base);
-    background-blend-mode: overlay;
+/* 3D Transform Classes */
+.perspective-1000 {
+    perspective: 1000px;
 }
 
-.full-height {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: clamp(40px, 10vh, 80px) 0; /* Padding responsivo */
-    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+.transform-style-3d {
+    transform-style: preserve-3d;
 }
 
-.shadow-effect {
-    transition: all 0.5s;
+.comet-card-container {
+    perspective: 1000px;
 }
 
-.shadow-effect:hover {
-    box-shadow: -6px 6px 0 0 var(--color-brand);
-}
-
-.iconbox {
-    width: clamp(50px, 10vw, 60px); /* Tamaño responsivo */
-    height: clamp(50px, 10vw, 60px); /* Tamaño responsivo */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: clamp(24px, 5vw, 32px); /* Tamaño de fuente responsivo */
-    background-color: var(--color-brand);
-    color: var(--color-base);
-}
-
-/* Navbar */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    width: 100%;
-    background-color: var(--color-base);
-}
-
-/* Contenedor principal de la navbar */
-.navbar .container-fluid {
-    padding: 10px 15px; /* Ajusta el padding según sea necesario */
-}
-
-/* Estilos para la imagen en modo móvil */
-.navbar .d-lg-none img {
-    width: 50px; /* Ajusta el tamaño según sea necesario */
-    height: 50px;
-    margin: 0 auto; /* Centra la imagen */
-}
-
-/* Estilos para la imagen en modo desktop */
-.navbar .navbar-brand img.d-none.d-lg-block {
-    width: 200px; /* Ajusta el tamaño según sea necesario */
-    height: 200px;
-}
-
-/* Ajustes para el botón toggler */
-.navbar-toggler {
+/* Uiverse Social Buttons */
+.Btn {
     border: none;
-    padding: 0;
-    margin-left: auto; /* Alinea el botón a la derecha */
-}
-
-.navbar-toggler:focus {
-    box-shadow: none;
-}
-
-/* Ajustes para el menú colapsable */
-.navbar-collapse {
-    background-color: var(--color-base);
-    padding: 15px;
-}
-
-/* Estilos para la navbar en modo desktop */
-@media (min-width: 992px) {
-    .navbar {
-        min-height: 100vh;
-        width: var(--sidebar-width);
-    }
-
-    .navbar-brand img {
-        border: 8px solid var(--color-brand);
-    }
-
-    #content-wrapper {
-        padding-left: var(--sidebar-width);
-    }
-}
-
-/* Estilos para la sección Hero */
-.hero-section {
-    background-image: url('/assets/images/hero-bg.jpg'); /* Ruta de tu imagen */
-    background-size: cover; /* Cubre todo el espacio disponible */
-    background-position: center; /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita que se repita */
-    position: relative; /* Necesario para el overlay */
-    color: #fff; /* Color del texto */
-    padding-top: 100px; /* Ajusta el espacio superior */
-    padding-bottom: 100px; /* Ajusta el espacio inferior */
-}
-
-/* Overlay oscuro para mejorar la legibilidad del texto */
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Color negro con 50% de opacidad */
-    z-index: 1;
-}
-
-/* Asegura que el contenido esté por encima del overlay */
-.hero-section .container {
-    position: relative;
-    z-index: 2;
-}
-
-/* Estilos para la sección de servicios */
-.services-section{
-    background-image: url('/assets/images/services-bg.jpg'); /* Ruta de tu imagen */
-    background-size: cover; /* Cubre todo el espacio disponible */
-    background-position: center; /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita que se repita */
-    position: relative; /* Necesario para el overlay */
-    color: #fff; /* Color del texto */
-    padding-top: 100px; /* Ajusta el espacio superior */
-    padding-bottom: 100px; /* Ajusta el espacio inferior */
-}
-
-/* Overlay oscuro para mejorar la legibilidad del texto */
-.services-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Color negro con 50% de opacidad */
-    z-index: 1;
-}
-
-/* Asegura que el contenido esté por encima del overlay */
-.services-section .container {
-    position: relative;
-    z-index: 2;
-}
-
-/* Tarjetas de servicios */
-#services .service {
-    background-color: var(--color-base);
-    padding: clamp(15px, 3vw, 25px);
-    border-radius: 12px; /* Se ajusta según otras secciones */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    height: 100%;
-    transition: all 0.3s ease-in-out;
-}
-
-#services .service:hover {
-    transform: translateY(-10px);
-    box-shadow: -6px 6px 0 0 var(--color-brand); /* Se mantiene el mismo efecto hover */
-}
-
-/* Íconos dentro de las tarjetas */
-#services .iconbox {
-    width: clamp(50px, 10vw, 60px);
-    height: clamp(50px, 10vw, 60px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: clamp(24px, 5vw, 32px);
-    background-color: var(--color-brand);
-    color: var(--color-base);
-    border-radius: 50%; /* Se cambia a circular si en otras secciones también es así */
-    margin: 0 auto 15px;
-}
-
-/* Títulos de los servicios */
-#services h5 {
-    color: var(--color-heading);
-    font-size: clamp(1rem, 2.5vw, 1.2rem);
-    font-weight: 600;
-    margin: clamp(10px, 2vw, 15px) 0;
-}
-
-/* Descripciones de los servicios */
-#services p {
-    color: var(--color-body);
-    font-size: clamp(0.8rem, 2vw, 0.9rem);
-    margin-bottom: 0;
-}
-
-/* Ajustes para versión móvil */
-@media (max-width: 767.98px) {
-    #services .col-md-4 {
-        margin-bottom: clamp(10px, 3vw, 20px);
-    }
-}
-
-/* Estilos para la sección de Work */
-.work-section{
-    background-image: url('/assets/images/work-bg.jpeg'); /* Ruta de tu imagen */
-    background-size: cover; /* Cubre todo el espacio disponible */
-    background-position: center; /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita que se repita */
-    position: relative; /* Necesario para el overlay */
-    color: #fff; /* Color del texto */
-    padding-top: 100px; /* Ajusta el espacio superior */
-    padding-bottom: 100px; /* Ajusta el espacio inferior */
-}
-
-/* Overlay oscuro para mejorar la legibilidad del texto */
-.work-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Color negro con 50% de opacidad */
-    z-index: 1;
-}
-
-/* Asegura que el contenido esté por encima del overlay */
-.work-section .container {
-    position: relative;
-    z-index: 2;
-}
-
-.card-custom-content h4 {
-    font-size: 1.3rem !important; /* Ajustá el tamaño según tu preferencia */
-    line-height: 1.2; /* Opcional, para reducir el espacio vertical */
-}
-
-/* Estilos para el scrollbar */
-#card-container::-webkit-scrollbar {
-    height: 8px;
-}
-
-#card-container::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
-}
-
-#card-container::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 10px;
-}
-
-#card-container::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
-audio {
-    width: 100%;
-    margin-top: clamp(5px, 1.5vw, 10px); /* Margen responsivo */
-}
-
-/* Responsive settings */
-@media (max-width: 767.98px) {
-    .card-custom {
-        margin-bottom: clamp(10px, 3vw, 20px); /* Margen responsivo */
-    }
-}
-
-/* Estilos para la sección de servicios */
-.about-section{
-    background-image: url('/assets/images/about-bg.jpeg'); /* Ruta de tu imagen */
-    background-size: cover; /* Cubre todo el espacio disponible */
-    background-position: center; /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita que se repita */
-    position: relative; /* Necesario para el overlay */
-    color: #fff; /* Color del texto */
-    padding-top: 100px; /* Ajusta el espacio superior */
-    padding-bottom: 100px; /* Ajusta el espacio inferior */
-}
-
-/* Overlay oscuro para mejorar la legibilidad del texto */
-.about-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Color negro con 50% de opacidad */
-    z-index: 1;
-}
-
-/* Asegura que el contenido esté por encima del overlay */
-.about-section .container {
-    position: relative;
-    z-index: 2;
-}
-
-/* Estilos para la sección de servicios */
-.review-section{
-    background-image: url('/assets/images/review-bg.jpg'); /* Ruta de tu imagen */
-    background-size: cover; /* Cubre todo el espacio disponible */
-    background-position: center; /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita que se repita */
-    position: relative; /* Necesario para el overlay */
-    color: #fff; /* Color del texto */
-    padding-top: 100px; /* Ajusta el espacio superior */
-    padding-bottom: 100px; /* Ajusta el espacio inferior */
-}
-
-/* Overlay oscuro para mejorar la legibilidad del texto */
-.review-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Color negro con 50% de opacidad */
-    z-index: 1;
-}
-
-/* Asegura que el contenido esté por encima del overlay */
-.review-section .container {
-    position: relative;
-    z-index: 2;
-}
-
-/* Estilos para la sección de servicios */
-.contact-section{
-    background-image: url('/assets/images/contact-bg.jpg'); /* Ruta de tu imagen */
-    background-size: cover; /* Cubre todo el espacio disponible */
-    background-position: center; /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita que se repita */
-    position: relative; /* Necesario para el overlay */
-    color: #fff; /* Color del texto */
-    padding-top: 100px; /* Ajusta el espacio superior */
-    padding-bottom: 100px; /* Ajusta el espacio inferior */
-}
-
-/* Overlay oscuro para mejorar la legibilidad del texto */
-.contact-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Color negro con 50% de opacidad */
-    z-index: 1;
-}
-
-/* Asegura que el contenido esté por encima del overlay */
-.contact-section .container {
-    position: relative;
-    z-index: 2;
-}
-
-/* Social icons */
-.social-icons a {
-    width: clamp(35px, 8vw, 40px); /* Tamaño responsivo */
-    height: clamp(35px, 8vw, 40px); /* Tamaño responsivo */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--color-base);
-    border-radius: 100px;
-    font-size: clamp(20px, 5vw, 24px); /* Tamaño de fuente responsivo */
-    transition: all 0.4s ease;
-}
-
-.social-icons a:hover {
-    background-color: var(--color-brand);
-    color: var(--color-base);
-}
-
-/* Media Queries for iPad Pro */
-@media only screen and (min-width: 1024px) and (max-width: 1366px) {
-    .navbar {
-        width: var(--sidebar-width);
-    }
-
-    #content-wrapper {
-        padding-left: var(--sidebar-width);
-    }
-
-    .full-height {
-        padding-top: clamp(80px, 10vh, 100px); /* Padding responsivo */
-    }
-}
-
-/* Buttons */
-.btn {
-    padding: clamp(8px, 2vw, 12px) clamp(16px, 4vw, 28px); /* Padding responsivo */
-    font-weight: 700;
-    font-size: clamp(0.9rem, 2vw, 1rem); /* Tamaño de fuente responsivo */
-}
-
-.btn-brand {
-    background-color: var(--color-brand);
-    border-color: var(--color-brand);
-    color: var(--color-base);
-}
-
-.btn-brand:hover,
-.btn-brand:focus {
-    background-color: var(--color-brand2);
-    color: var(--color-base);
-    border-color: var(--color-brand2);
-}
-
-/* Reviews Style */
-.review {
-    background-color: var(--color-base);
-    padding: clamp(10px, 3vw, 20px); /* Padding responsivo */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    height: 100%;
-}
-
-.review img {
-    width: clamp(150px, 30vw, 200px); /* Tamaño responsivo */
-    height: clamp(150px, 30vw, 200px); /* Tamaño responsivo */
     border-radius: 50%;
-    margin-bottom: clamp(10px, 2vw, 15px); /* Margen responsivo */
-}
-
-.review .text-star {
-    color: var(--color-brand);
-    margin-bottom: clamp(5px, 1.5vw, 10px); /* Margen responsivo */
-}
-
-.review p {
-    color: var(--color-body);
-    font-size: clamp(0.8rem, 2vw, 0.9rem); /* Tamaño de fuente responsivo */
-    margin-bottom: clamp(10px, 2vw, 15px); /* Margen responsivo */
-}
-
-.review .person h5 {
-    color: var(--color-heading);
-    margin-bottom: clamp(3px, 1vw, 5px); /* Margen responsivo */
-    font-size: clamp(1rem, 2.5vw, 1.2rem); /* Tamaño de fuente responsivo */
-}
-
-.review .person p {
-    color: var(--color-body);
-    font-size: clamp(0.7rem, 1.8vw, 0.8rem); /* Tamaño de fuente responsivo */
-}
-
-/* Contact Form */
-#contact .form-control {
-    background-color: var(--color-base);
-    border-color: var(--color-base);
-    color: var(--color-body);
-    font-size: clamp(0.8rem, 2vw, 0.9rem); /* Tamaño de fuente responsivo */
-}
-
-#contact .form-control:focus {
-    border-color: var(--color-brand);
-    box-shadow: none;
-}
-
-#contact .form-control::placeholder {
-    color: var(--color-body);
-}
-
-#contact input.form-control {
-    height: clamp(40px, 8vw, 44px); /* Altura responsiva */
-}
-
-/* Footer Style */
-footer {
-    background-color: var(--color-base);
-    text-align: center;
-    padding: clamp(10px, 3vw, 20px) 0; /* Padding responsivo */
-}
-
-.wrapper {
+    width: 45px;
+    height: 45px;
     display: flex;
+    align-items: center;
     justify-content: center;
-    gap: clamp(10px, 2vw, 15px); /* Espacio responsivo */
-}
-
-.wrapper .icon {
-    position: relative;
+    transition-duration: .4s;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.wrapper .icon span {
-    display: block;
-    height: clamp(35px, 8vw, 40px); /* Tamaño responsivo */
-    width: clamp(35px, 8vw, 40px); /* Tamaño responsivo */
-    background: #1c1c27;
-    border-radius: 50%;
     position: relative;
-    z-index: 2;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-    transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    overflow: hidden;
+    text-decoration: none;
+    /* Ensure no underline on links */
 }
 
-.wrapper .icon span i {
-    line-height: clamp(35px, 8vw, 40px); /* Tamaño responsivo */
-    font-size: clamp(16px, 4vw, 18px); /* Tamaño de fuente responsivo */
+.Btn-insta {
+    background: #f09433;
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f09433', endColorstr='#bc1888', GradientType=1);
 }
 
-.wrapper .icon .tooltip {
+.Btn-tg {
+    background: #2AABEE;
+    background: -moz-linear-gradient(45deg, #2AABEE 0%, #229ED9 50%, #1E96C8 100%);
+    background: -webkit-linear-gradient(45deg, #2AABEE 0%, #229ED9 50%, #1E96C8 100%);
+    background: linear-gradient(45deg, #2AABEE 0%, #229ED9 50%, #1E96C8 100%);
+}
+
+.svgIcon {
+    transition-duration: .3s;
+    fill: white;
+}
+
+.Btn .text {
     position: absolute;
-    top: clamp(-30px, -6vw, -40px); /* Posición responsiva */
-    z-index: 1;
-    background: #fff;
-    color: #fff;
-    padding: clamp(4px, 1vw, 6px) clamp(8px, 2vw, 12px); /* Padding responsivo */
-    font-size: clamp(12px, 3vw, 14px); /* Tamaño de fuente responsivo */
-    font-weight: 500;
-    border-radius: 20px;
+    color: rgb(255, 255, 255);
+    width: 120px;
+    font-weight: 600;
     opacity: 0;
-    pointer-events: none;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-    transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition-duration: .4s;
+    text-align: center;
+    font-size: 0.9rem;
 }
 
-.wrapper .icon:hover .tooltip {
-    top: clamp(-40px, -8vw, -50px); /* Posición responsiva */
+.Btn:hover {
+    width: 110px;
+    transition-duration: .4s;
+    border-radius: 30px;
+}
+
+.Btn:hover .text {
     opacity: 1;
-    pointer-events: auto;
+    transition-duration: .4s;
 }
 
-.icon .tooltip:before {
-    position: absolute;
-    content: "";
-    height: clamp(8px, 2vw, 10px); /* Tamaño responsivo */
-    width: clamp(8px, 2vw, 10px); /* Tamaño responsivo */
-    background: #1c1c27;
-    left: 50%;
-    bottom: clamp(-4px, -1vw, -5px); /* Posición responsiva */
-    transform: translateX(-50%) rotate(45deg);
-    transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.wrapper .icon:hover span {
-    color: #fff;
-}
-
-.wrapper .icon:hover span,
-.wrapper .icon:hover .tooltip {
-    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4);
-}
-
-.wrapper .facebook:hover span,
-.wrapper .facebook:hover .tooltip,
-.wrapper .facebook:hover .tooltip:before {
-    background: #3B5999;
-}
-
-.wrapper .x:hover span,
-.wrapper .x:hover .tooltip,
-.wrapper .x:hover .tooltip:before {
-    background: #1d1d1d;
-}
-
-.wrapper .instagram:hover span,
-.wrapper .instagram:hover .tooltip,
-.wrapper .instagram:hover .tooltip:before {
-    background: #e1306c;
-}
-
-.wrapper .spotify:hover span,
-.wrapper .spotify:hover .tooltip,
-.wrapper .spotify:hover .tooltip:before {
-    background: #1ED760;
-}
-
-.wrapper .youtube:hover span,
-.wrapper .youtube:hover .tooltip,
-.wrapper .youtube:hover .tooltip:before {
-    background: #DE463B;
-}
-
-.developer {
-    padding: clamp(12px, 3vw, 16px) clamp(8px, 2vw, 12px); /* Padding responsivo */
-}
-
-/* Custom CSS for Animations */
-
-.nautic-animate {
+.Btn:hover .svgIcon {
     opacity: 0;
-    transition: opacity 0.6s ease-out,
-    transform 0.6s ease-out;
+    transition-duration: .3s;
 }
 
-.nautic-animate.fade-up {
-    transform: translateY(20px);
+/* Custom Scrollbar for Modal */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
 }
 
-.nautic-animate.fade-down {
-    transform: translateY(-20px);
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
 }
 
-.nautic-animate.animate {
-    opacity: 1;
-    transform: translateY(0);
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Northern Aurora Background */
+.bg-aurora {
+    background-color: #000000;
+    background-image:
+        radial-gradient(ellipse 70% 55% at 50% 50%, rgba(255, 20, 147, 0.15), transparent 50%),
+        radial-gradient(ellipse 160% 130% at 10% 10%, rgba(0, 255, 255, 0.12), transparent 60%),
+        radial-gradient(ellipse 160% 130% at 90% 90%, rgba(138, 43, 226, 0.18), transparent 65%),
+        radial-gradient(ellipse 110% 50% at 80% 30%, rgba(255, 215, 0, 0.08), transparent 40%);
+    background-attachment: fixed;
 }
