@@ -4,7 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mix & Master Pro | Elevate Your Sound</title>
+    <title>Nautic Studio | Professional Mix & Mastering Services</title>
+    <meta name="description"
+        content="Elevate your sound with industry-standard mixing and mastering services tailored for modern electronic music. Professional audio engineering by Nautic Studio.">
+    <meta name="keywords"
+        content="mixing, mastering, stem mastering, vocal production, electronic music, audio engineering, nautic studio, music production, online mixing, online mastering">
+    <meta name="author" content="Nautic Studio">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nauticboy.github.io/">
+    <meta property="og:title" content="Nautic Studio | Professional Mix & Mastering">
+    <meta property="og:description"
+        content="Elevate your sound with industry-standard mixing and mastering services tailored for modern electronic music.">
+    <meta property="og:image" content="https://nauticboy.github.io/assets/images/studio.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://nauticboy.github.io/">
+    <meta property="twitter:title" content="Nautic Studio | Professional Mix & Mastering">
+    <meta property="twitter:description"
+        content="Elevate your sound with industry-standard mixing and mastering services tailored for modern electronic music.">
+    <meta property="twitter:image" content="https://nauticboy.github.io/assets/images/studio.jpg">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -19,6 +42,29 @@
 
     <!-- Tailwind Config -->
     <script src="assets/js/tailwind-config.js"></script>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Nautic Studio",
+      "image": "https://nauticboy.github.io/assets/images/studio.jpg",
+      "@id": "https://nauticboy.github.io/",
+      "url": "https://nauticboy.github.io/",
+      "telephone": "",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "US"
+      },
+      "description": "Professional Mix & Mastering services tailored to bring your artistic vision to life. Industry standard quality for the modern artist.",
+      "sameAs": [
+        "https://www.instagram.com/nautic.studio/",
+        "https://t.me/+QJCKqq-wpR45MmJh"
+      ]
+    }
+    </script>
 </head>
 
 <body class="antialiased selection:bg-brand-accent selection:text-white bg-aurora">
@@ -302,134 +348,47 @@
         </div>
     </section>
 
-    <!-- Reviews Section -->
+    <!-- Reviews Section (Animated Testimonials) -->
     <section id="reviews" class="py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Artist Reviews</h2>
 
-            <div class="grid md:grid-cols-4 gap-6 perspective-1000">
-                <!-- Review 1 -->
-                <div class="comet-card-container group h-[400px]">
-                    <div
-                        class="comet-card w-full h-full rounded-2xl relative transform-style-3d transition-transform duration-200 ease-out overflow-hidden shadow-xl">
-                        <!-- Background Image -->
-                        <div class="absolute inset-0">
-                            <img src="assets/images/review-1.jpg" alt="Vlex" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-linear-to-t from-black via-black/60 to-transparent"></div>
-                        </div>
-
-                        <!-- Glare -->
-                        <div
-                            class="comet-glare absolute inset-0 rounded-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200 mix-blend-overlay z-50">
-                        </div>
-
-                        <!-- Content -->
-                        <div class="relative h-full flex flex-col justify-end p-6 z-10">
-                            <div class="flex items-center mb-2">
-                                <div class="text-yellow-500 flex text-xs">★★★★★</div>
-                            </div>
-                            <p class="text-gray-200 mb-4 text-sm italic leading-relaxed">"Absolutely transformed my
-                                track. The low end is tight and punchy."</p>
-                            <div>
-                                <div class="font-bold text-white text-lg">Vlex</div>
-                                <div class="text-xs text-brand-glow font-medium uppercase tracking-wider">DJ Producer
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+                <!-- Image Stack -->
+                <div class="relative h-[400px] w-full perspective-1000" id="testimonial-images">
+                    <!-- Images injected by JS -->
                 </div>
 
-                <!-- Review 2 -->
-                <div class="comet-card-container group h-[400px]">
-                    <div
-                        class="comet-card w-full h-full rounded-2xl relative transform-style-3d transition-transform duration-200 ease-out overflow-hidden shadow-xl">
-                        <!-- Background Image -->
-                        <div class="absolute inset-0">
-                            <img src="assets/images/review-2.jpg" alt="NiPe" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-linear-to-t from-black via-black/60 to-transparent"></div>
-                        </div>
+                <!-- Content -->
+                <div class="flex flex-col justify-center">
+                    <h3 class="text-3xl font-bold text-white mb-2" id="testimonial-name"></h3>
+                    <p class="text-sm text-brand-accent font-medium uppercase tracking-wider mb-8"
+                        id="testimonial-role"></p>
 
-                        <!-- Glare -->
-                        <div
-                            class="comet-glare absolute inset-0 rounded-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200 mix-blend-overlay z-50">
-                        </div>
+                    <p class="text-xl text-gray-300 leading-relaxed min-h-[120px]" id="testimonial-quote">
+                        <!-- Spans injected by JS -->
+                    </p>
 
-                        <!-- Content -->
-                        <div class="relative h-full flex flex-col justify-end p-6 z-10">
-                            <div class="flex items-center mb-2">
-                                <div class="text-yellow-500 flex text-xs">★★★★★</div>
-                            </div>
-                            <p class="text-gray-200 mb-4 text-sm italic leading-relaxed">"Professional, fast, and easy
-                                to communicate with. Great sound."</p>
-                            <div>
-                                <div class="font-bold text-white text-lg">NiPe</div>
-                                <div class="text-xs text-brand-glow font-medium uppercase tracking-wider">DJ Producer
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Review 3 -->
-                <div class="comet-card-container group h-[400px]">
-                    <div
-                        class="comet-card w-full h-full rounded-2xl relative transform-style-3d transition-transform duration-200 ease-out overflow-hidden shadow-xl">
-                        <!-- Background Image -->
-                        <div class="absolute inset-0">
-                            <img src="assets/images/review-3.png" alt="Robert Ríos" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-linear-to-t from-black via-black/60 to-transparent"></div>
-                        </div>
-
-                        <!-- Glare -->
-                        <div
-                            class="comet-glare absolute inset-0 rounded-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200 mix-blend-overlay z-50">
-                        </div>
-
-                        <!-- Content -->
-                        <div class="relative h-full flex flex-col justify-end p-6 z-10">
-                            <div class="flex items-center mb-2">
-                                <div class="text-yellow-500 flex text-xs">★★★★★</div>
-                            </div>
-                            <p class="text-gray-200 mb-4 text-sm italic leading-relaxed">"Professional, fast, and easy
-                                to communicate with. Recommended."</p>
-                            <div>
-                                <div class="font-bold text-white text-lg">Robert Ríos</div>
-                                <div class="text-xs text-brand-glow font-medium uppercase tracking-wider">DJ Producer
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Review 4 -->
-                <div class="comet-card-container group h-[400px]">
-                    <div
-                        class="comet-card w-full h-full rounded-2xl relative transform-style-3d transition-transform duration-200 ease-out overflow-hidden shadow-xl">
-                        <!-- Background Image -->
-                        <div class="absolute inset-0">
-                            <img src="assets/images/review-4.jpg" alt="Tomas Llorca" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-linear-to-t from-black via-black/60 to-transparent"></div>
-                        </div>
-
-                        <!-- Glare -->
-                        <div
-                            class="comet-glare absolute inset-0 rounded-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200 mix-blend-overlay z-50">
-                        </div>
-
-                        <!-- Content -->
-                        <div class="relative h-full flex flex-col justify-end p-6 z-10">
-                            <div class="flex items-center mb-2">
-                                <div class="text-yellow-500 flex text-xs">★★★★★</div>
-                            </div>
-                            <p class="text-gray-200 mb-4 text-sm italic leading-relaxed">"He gained a physique and
-                                strength that he didn't really have before.
-                                I was amazed!"</p>
-                            <div>
-                                <div class="font-bold text-white text-lg">Tomas Llorca</div>
-                                <div class="text-xs text-brand-glow font-medium uppercase tracking-wider">DJ Producer
-                                </div>
-                            </div>
-                        </div>
+                    <!-- Navigation -->
+                    <div class="flex gap-4 mt-8">
+                        <button id="prev-testimonial"
+                            class="group flex items-center justify-center w-12 h-12 rounded-full bg-white/5 hover:bg-white/10 transition-colors border border-white/10">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="h-6 w-6 text-gray-400 group-hover:text-white transition-colors transform group-hover:-translate-x-0.5"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                        <button id="next-testimonial"
+                            class="group flex items-center justify-center w-12 h-12 rounded-full bg-white/5 hover:bg-white/10 transition-colors border border-white/10">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="h-6 w-6 text-gray-400 group-hover:text-white transition-colors transform group-hover:translate-x-0.5"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </div>
