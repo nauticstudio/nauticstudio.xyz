@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nauticboy.github.io/sitemap.xml
