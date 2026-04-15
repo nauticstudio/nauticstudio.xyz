@@ -873,10 +873,24 @@
                     </div>
                 </div>
 
-                <!-- Image/Preview -->
-                <div class="lg:w-1/2 p-8 md:p-12 relative z-10 flex justify-center items-center">
-                    <div class="relative w-full max-w-lg perspective-1000">
-                        <img src="./assets/images/player-bl.webp" alt="NauticPlayer Interface" class="rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] transform group-hover:rotate-y-[-5deg] group-hover:scale-105 transition-all duration-700 ease-out border border-white/10">
+                <!-- Image/Preview: Floating 3D Interface -->
+                <div class="lg:w-1/2 p-8 md:p-12 relative z-10 flex justify-center items-center perspective-2000">
+                    <div class="relative w-full max-w-lg tilt-3d glow-on-hover">
+                        <!-- Dynamic Aura -->
+                        <div class="player-aura"></div>
+                        
+                        <!-- Floating Decorative Glass Fragments -->
+                        <div class="floating-glass w-20 h-20 -top-8 -left-8 opacity-40" style="animation-delay: 0s;"></div>
+                        <div class="floating-glass w-12 h-12 -bottom-10 -right-6 opacity-30" style="animation-delay: 2s;"></div>
+                        <div class="floating-glass w-8 h-8 top-1/2 -right-12 opacity-20" style="animation-delay: 1s;"></div>
+                        
+                        <!-- Main Player UI -->
+                        <div class="relative z-10 p-4">
+                            <img src="./assets/images/player-bl.webp" alt="NauticPlayer Interface" class="rounded-2xl shadow-[0_30px_60px_rgba(0,0,0,0.8),0_0_20px_rgba(147,51,234,0.3)] border border-white/10">
+                        </div>
+                        
+                        <!-- Accent light -->
+                        <div class="absolute top-0 left-1/4 w-1/2 h-1 bg-gradient-to-r from-transparent via-brand-accent/40 to-transparent blur-sm"></div>
                     </div>
                 </div>
             </div>
