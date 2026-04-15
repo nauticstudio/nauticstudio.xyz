@@ -64,6 +64,15 @@
             footer_subscribe: 'Suscribirse',
             footer_privacy: 'Política de Privacidad',
             footer_terms: 'Términos de Servicio',
+
+            // Software
+            software_title: 'Software y <span class="text-white">Apps</span>',
+            software_desc: 'Herramientas personalizadas para el productor y audiófilo moderno.',
+            software_tagline: 'Ligero en tu Mac. <br/>Pesado en Sonido.',
+            software_feature1: 'Construido nativamente sobre <strong>AVAudioEngine</strong> de Apple para la máxima fidelidad.',
+            software_feature2: 'Sin picos de CPU y con mayor duración de batería vs apps Electron.',
+            software_feature3: 'Mezcla automática grado DJ desde tu Barra de Menú.',
+            software_cta: 'Descubrir NauticPlayer',
         },
         en: {
             nav_studio: 'Studio',
@@ -106,6 +115,15 @@
             footer_subscribe: 'Subscribe',
             footer_privacy: 'Privacy Policy',
             footer_terms: 'Terms of Service',
+
+            // Software
+            software_title: 'Software & <span class="text-white">Apps</span>',
+            software_desc: 'Custom tools developed for the modern producer and audiophile.',
+            software_tagline: 'Featherweight on your Mac. <br/>Heavyweight on Sound.',
+            software_feature1: "Built natively on Apple's <strong>AVAudioEngine</strong> for maximum fidelity.",
+            software_feature2: 'Zero CPU spikes & extended battery life vs Electron apps.',
+            software_feature3: 'DJ-grade Automixing capabilities from your Menu Bar.',
+            software_cta: 'Discover NauticPlayer',
         }
     };
 
