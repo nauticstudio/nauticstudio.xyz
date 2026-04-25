@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Script from 'next/script';
 import { Play, Pause } from 'lucide-react';
+import { WaveformProgress } from '../ui/WaveformProgress';
 
 interface SCPlayerWrapperProps {
   tracks: { id: number; scId: string; title: string; src: string }[];
@@ -11,15 +12,29 @@ interface SCPlayerWrapperProps {
 
 export const SCPlayerWrapper: React.FC<SCPlayerWrapperProps> = ({ tracks, ctaText }) => {
   const [playingId, setPlayingId] = useState<number | null>(null);
+  const [progress, setProgress] = useState(0);
   const [widget, setWidget] = useState<any>(null);
+
+  const currentTrack = tracks.find(t => t.id === playingId);
 
   useEffect(() => {
     // SC is loaded via Script component in the parent
     const initWidget = () => {
       if ((window as any).SC) {
-        const iframeElement = document.querySelector('#sc-widget');
+        const iframeElement = document.querySelector('#sc-widget') as HTMLIFrameElement;
         if (iframeElement) {
-          setWidget((window as any).SC.Widget(iframeElement));
+          const scWidget = (window as any).SC.Widget(iframeElement);
+          setWidget(scWidget);
+
+          // Bind events
+          scWidget.bind((window as any).SC.Widget.Events.PLAY_PROGRESS, (data: { relativePosition: number }) => {
+            setProgress(data.relativePosition);
+          });
+
+          scWidget.bind((window as any).SC.Widget.Events.FINISH, () => {
+            setPlayingId(null);
+            setProgress(0);
+          });
         }
       }
     };
@@ -35,6 +50,7 @@ export const SCPlayerWrapper: React.FC<SCPlayerWrapperProps> = ({ tracks, ctaTex
       widget.pause();
       setPlayingId(null);
     } else {
+      setProgress(0);
       widget.load(`https://api.soundcloud.com/tracks/${scId}`, {
         auto_play: true,
         show_artwork: false,
@@ -42,6 +58,19 @@ export const SCPlayerWrapper: React.FC<SCPlayerWrapperProps> = ({ tracks, ctaTex
       });
       setPlayingId(id);
     }
+  };
+
+  const handleSeek = (percent: number) => {
+    if (!widget) return;
+    widget.getDuration((duration: number) => {
+      widget.seekTo(duration * percent);
+    });
+  };
+
+  const handleClose = () => {
+    if (widget) widget.pause();
+    setPlayingId(null);
+    setProgress(0);
   };
 
   return (
@@ -78,6 +107,15 @@ export const SCPlayerWrapper: React.FC<SCPlayerWrapperProps> = ({ tracks, ctaTex
           </div>
         ))}
       </div>
+
+      {/* Waveform Progress Bar */}
+      <WaveformProgress 
+        progress={progress}
+        isPlaying={playingId !== null}
+        trackTitle={currentTrack?.title || ''}
+        onClose={handleClose}
+        onSeek={handleSeek}
+      />
 
       {/* Hidden Player */}
       <iframe
