@@ -1,156 +1,36 @@
-<div align="center">
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-<img src="https://nauticstudio.xyz/assets/images/nb-icon.ico" width="80" />
+## Getting Started
 
-# NAUTIC BOY **&** STUDIO
-
-### *Elevating electronic music from the booth to the final master*
-
-[![Website](https://img.shields.io/badge/🌐_Website-nauticstudio.xyz-FF6B00?style=for-the-badge&labelColor=0D0D0D)](https://nauticstudio.xyz)
-[![Spotify](https://img.shields.io/badge/🎵_Spotify-Nautic_Boy-1DB954?style=for-the-badge&labelColor=0D0D0D)](https://open.spotify.com/artist/6Oe1G3e3ajshDM507toD5H)
-[![Instagram](https://img.shields.io/badge/📸_Instagram-@nauticboy.music-E4405F?style=for-the-badge&labelColor=0D0D0D)](https://www.instagram.com/nauticboy.music)
-[![Telegram](https://img.shields.io/badge/✈️_Telegram-Community-26A5E4?style=for-the-badge&labelColor=0D0D0D)](https://t.me/+QJCKqq-wpR45MmJh)
-
-<br/>
-
-<img src="https://nauticstudio.xyz/assets/images/preview-link.jpg" width="720" style="border-radius:12px" />
-
-</div>
-
-<br/>
-
----
-
-## ✦ About
-
-**Nautic Boy & Studio** is the professional platform of **Nautic Boy** — electronic music producer, DJ, and mix & mastering engineer. This website serves as a hub for studio services, official music releases, production templates, and professional portfolio.
-
-Built with performance, aesthetics, and user experience at its core — designed to reflect the premium quality of Nautic Boy's work in the electronic music industry.
-
-<br/>
-
-## ✦ Features
-
-| Feature | Description |
-|---------|-------------|
-| 🎛️ **Nautic Studio** | Professional mixing & mastering services with streamlined pricing |
-| 🎵 **Official Releases** | Complete discography with Spotify integration — 11 releases with interactive hover previews |
-| 🧩 **Production Templates** | 6 Ableton Live & Logic Pro templates with embedded SoundCloud audio previews |
-| 🖼️ **Portfolio** | Showcase of production and engineering work with audio previews |
-| ⭐ **Reviews** | Client testimonials and feedback |
-| 🌐 **i18n** | Full English/Spanish language support with auto browser detection |
-| 📱 **Responsive** | Optimized for all devices — mobile, tablet, and desktop |
-
-<br/>
-
-## ✦ Tech Stack
-
-```
-Frontend         HTML5 · CSS3 · JavaScript (ES6+)
-Styling          Tailwind CSS (CDN)
-Audio            SoundCloud Widget API
-Typography       Outfit (Google Fonts)
-Hosting          GitHub Pages
-Domain           nauticstudio.xyz
-```
-
-<br/>
-
-## ✦ Project Structure
-
-```
-nauticstudio.xyz/
-├── index.html                  # Main entry point
-├── success.html                # Form submission confirmation
-├── robots.txt                  # SEO crawling rules
-├── sitemap.xml                 # SEO sitemap
-├── CNAME                       # Custom domain config
-│
-└── assets/
-    ├── css/
-    │   └── style.css           # Custom styles & animations
-    ├── js/
-    │   ├── main.js             # Core interactions & UI logic
-    │   ├── i18n.js             # Internationalization (EN/ES)
-    │   ├── sc-player.js        # SoundCloud preview player
-    │   └── tailwind-config.js  # Tailwind theme extension
-    ├── images/                 # Covers, templates, portfolio, reviews
-    └── media/                  # Audio preview files (.mp3)
-```
-
-<br/>
-
-## ✦ Key Integrations
-
-<table>
-<tr>
-<td width="50%">
-
-### 🎧 SoundCloud Audio Previews
-Each production template features an integrated audio player powered by the **SoundCloud Widget API**. A custom-built progress bar with seek functionality replaces the default SoundCloud embed for a clean, on-brand experience.
-
-</td>
-<td width="50%">
-
-### 🟢 Spotify Releases
-The releases section pulls cover art directly from Spotify's CDN. Each card features hover-activated overlays with track names and direct **"Listen on Spotify"** links in Spotify green.
-
-</td>
-</tr>
-</table>
-
-<br/>
-
-## ✦ Design Philosophy
-
-> *"Every pixel should sound as good as the music."*
-
-- **Dark-first aesthetic** — Deep blacks with warm orange (`#FF6B00`) and violet accents
-- **Glassmorphism** — Frosted glass cards with subtle backdrop blur
-- **Micro-animations** — Smooth hover transitions, scale effects, and opacity fades
-- **Premium typography** — Outfit font family for a modern, clean feel
-- **Consistent spacing** — 8px grid system throughout
-
-<br/>
-
-## ✦ Local Development
+First, run the development server:
 
 ```bash
-# Clone the repository
-git clone https://github.com/nauticstudio/nauticstudio.xyz.git
-
-# Open in browser
-open index.html
-
-# Or serve locally (recommended for SoundCloud API)
-npx serve .
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-<br/>
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## ✦ Deployment
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This site is deployed automatically via **GitHub Pages** on every push to `main`.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-- **Domain:** [nauticstudio.xyz](https://nauticstudio.xyz)
-- **SSL:** Enforced via GitHub Pages
-- **CDN:** GitHub's global edge network
+## Learn More
 
-<br/>
+To learn more about Next.js, take a look at the following resources:
 
----
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-<div align="center">
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-<br/>
+## Deploy on Vercel
 
-**Built with** 🧡 **by Nautic Boy**
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-<sub>© 2025 Nautic Boy & Studio — All rights reserved</sub>
-
-<br/><br/>
-
-[![GitHub](https://img.shields.io/badge/GitHub-nauticstudio-181717?style=flat-square&logo=github)](https://github.com/nauticstudio)
-[![Website](https://img.shields.io/badge/Web-nauticstudio.xyz-FF6B00?style=flat-square)](https://nauticstudio.xyz)
-
-</div>
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
