@@ -25,8 +25,8 @@ export const ReleasesSection: React.FC<ReleasesSectionProps> = ({ dict }) => {
             </RevealWrapper>
           </div>
           <RevealWrapper direction="left">
-            <a 
-              href="https://open.spotify.com/intl-es/artist/4X9yOas8vW2mB1UAnX9S8p" 
+            <a
+              href="https://open.spotify.com/artist/6Oe1G3e3ajshDM507toD5H?si=nJ0pRFbGQVezygHeOF6eCQ"
               target="_blank"
               className="flex items-center gap-3 px-8 py-4 bg-[#1DB954] text-black font-bold rounded-full hover:scale-105 transition-transform"
             >
@@ -39,15 +39,15 @@ export const ReleasesSection: React.FC<ReleasesSectionProps> = ({ dict }) => {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {releases.map((release, i) => (
             <RevealWrapper key={release.id} direction="up" delay={i * 0.1}>
-              <a 
-                href={release.spotifyLink} 
-                target="_blank" 
+              <a
+                href={release.spotifyLink}
+                target="_blank"
                 className="group block relative aspect-square overflow-hidden rounded-2xl border border-white/10"
               >
-                <Image 
-                  src={release.src} 
-                  alt={release.title} 
-                  fill 
+                <Image
+                  src={release.src}
+                  alt={release.title}
+                  fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-3"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
