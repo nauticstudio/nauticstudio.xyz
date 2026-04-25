@@ -5,7 +5,7 @@ import Script from 'next/script';
 import { Play, Pause } from 'lucide-react';
 
 interface SCPlayerWrapperProps {
-  tracks: { id: number; scId: string; title: string }[];
+  tracks: { id: number; scId: string; title: string; src: string }[];
   ctaText: string;
 }
 
@@ -50,7 +50,7 @@ export const SCPlayerWrapper: React.FC<SCPlayerWrapperProps> = ({ tracks, ctaTex
         {tracks.map((track) => (
           <div key={track.id} className="group relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 aspect-square">
             <img 
-              src={`/images/template-${track.id}.jpg`} 
+              src={track.src} 
               alt={track.title}
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
