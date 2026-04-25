@@ -6,7 +6,7 @@ import { Play, Pause } from 'lucide-react';
 import { WaveformProgress } from '../ui/WaveformProgress';
 
 interface SCPlayerWrapperProps {
-  tracks: { id: number; scId: string; title: string; src: string }[];
+  tracks: { id: number; scId: string; title: string; src: string; buyLink: string }[];
   ctaText: string;
 }
 
@@ -96,7 +96,7 @@ export const SCPlayerWrapper: React.FC<SCPlayerWrapperProps> = ({ tracks, ctaTex
                 </button>
                 
                 <a 
-                  href="https://www.myloops.net/producer/nautic-boy" 
+                  href={track.buyLink} 
                   target="_blank"
                   className="px-6 py-4 bg-white/10 hover:bg-white/20 text-white rounded-full font-bold transition-colors"
                 >
