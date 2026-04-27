@@ -1,42 +1,51 @@
 'use client';
 
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
 export const HeroParallax: React.FC = () => {
-  const imageRef = useRef<HTMLDivElement>(null);
+  // Motion values for normalized mouse position (-0.5 to 0.5)
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  // Smooth springs for fluid movement
+  // Stiffness 150, damping 20 provides a nice premium "weighty" feel
+  const mouseXSpring = useSpring(x, { stiffness: 150, damping: 20 });
+  const mouseYSpring = useSpring(y, { stiffness: 150, damping: 20 });
+
+  // Map normalized values to degrees of rotation
+  // Max rotation of 15 degrees for a subtle effect
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["15deg", "-15deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-15deg", "15deg"]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      if (!imageRef.current || window.innerWidth < 1024) return;
+      if (window.innerWidth < 1024) return;
       
-      const { clientX, clientY } = e;
-      const { left, top, width, height } = imageRef.current.getBoundingClientRect();
+      // Normalize mouse position relative to window center
+      // This ensures rotation values are bounded and predictable
+      const xPct = (e.clientX / window.innerWidth) - 0.5;
+      const yPct = (e.clientY / window.innerHeight) - 0.5;
       
-      const x = (clientX - (left + width / 2)) / (width / 2);
-      const y = (clientY - (top + height / 2)) / (height / 2);
-      
-      const rotateY = x * 15;
-      const rotateX = -y * 15;
-      
-      imageRef.current.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+      x.set(xPct);
+      y.set(yPct);
     };
 
     const handleMouseLeave = () => {
-      if (!imageRef.current) return;
-      imageRef.current.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
+      // Return to neutral position when mouse leaves the viewport
+      x.set(0);
+      y.set(0);
     };
 
-    // We attach to window or a parent to make it smoother
     window.addEventListener('mousemove', handleMouseMove);
-    imageRef.current?.addEventListener('mouseleave', handleMouseLeave);
+    document.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
-      imageRef.current?.removeEventListener('mouseleave', handleMouseLeave);
+      document.removeEventListener('mouseleave', handleMouseLeave);
     };
-  }, []);
+  }, [x, y]);
 
   return (
     <motion.div
@@ -45,10 +54,15 @@ export const HeroParallax: React.FC = () => {
       transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
       className="relative perspective-2000 hidden lg:flex justify-center"
     >
-      <div 
-        ref={imageRef}
-        className="relative w-full max-w-[500px] transition-transform duration-200 transform-style-3d shadow-2xl rounded-3xl overflow-hidden"
+      <motion.div 
+        style={{
+          rotateX,
+          rotateY,
+          transformStyle: "preserve-3d",
+        }}
+        className="relative w-full max-w-[500px] shadow-2xl rounded-3xl overflow-hidden"
       >
+        {/* Glow effect that moves with the container */}
         <div className="absolute -inset-10 bg-brand-violet/20 blur-[100px] rounded-full animate-pulse" />
         
         <Image 
@@ -59,7 +73,7 @@ export const HeroParallax: React.FC = () => {
           className="relative z-10 w-full h-auto drop-shadow-[0_40px_60px_rgba(0,0,0,0.8)]"
           priority
         />
-      </div>
+      </motion.div>
     </motion.div>
   );
 };
