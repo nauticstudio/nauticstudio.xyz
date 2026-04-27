@@ -1,36 +1,108 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+  <img src="https://raw.githubusercontent.com/nauticsoftware/nauticplayer-web/main/public/icons/np_128x128.png" alt="Nautic Studio Logo" width="120" style="border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" />
 
-## Getting Started
+  <br />
+  <br />
 
-First, run the development server:
+  # Nautic Studio Web
+  **The official digital home of Nautic Studio.**
+
+  <p align="center">
+    <a href="https://nauticstudio.xyz"><b>Website</b></a> •
+    <a href="#-tech-stack"><b>Tech Stack</b></a> •
+    <a href="#-getting-started"><b>Getting Started</b></a> •
+    <a href="#-philosophy"><b>Philosophy</b></a>
+  </p>
+  
+  <p align="center">
+    <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" />
+    <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+    <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
+    <img src="https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white" alt="Framer Motion" />
+  </p>
+</div>
+
+---
+
+## ✦ Overview
+
+The official frontend repository for **[nauticstudio.xyz](https://nauticstudio.xyz)**. 
+
+This platform showcases our suite of native macOS applications, including our flagship product, **NauticPlayer**. Designed with minimalism, extreme performance, and a "premium-first" aesthetic, this website code reflects the core values of our desktop software.
+
+<br />
+
+## ✦ Tech Stack
+
+Built for speed, SEO, and highly immersive user experiences:
+
+*   ⚡ **Framework**: [Next.js](https://nextjs.org/) (App Router for optimal server/client boundaries)
+*   🛡️ **Language**: [TypeScript](https://www.typescriptlang.org/) (End-to-end type safety)
+*   🎨 **Styling**: [Tailwind CSS](https://tailwindcss.com/) (Utility-first, highly scalable styling)
+*   ✨ **Animations**: [Framer Motion](https://www.framer.com/motion/) (Smooth, physics-based UI transitions)
+*   🚀 **Deployment**: [Vercel](https://vercel.com/) (Edge network delivery)
+
+<br />
+
+## ✦ Getting Started
+
+To run this project locally, follow these steps:
+
+### Prerequisites
+Make sure you have Node.js (v18+) and your preferred package manager (`npm`, `yarn`, `pnpm`, or `bun`) installed.
+
+### Installation
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/nauticstudio/nauticstudio.xyz.git
+
+# 2. Navigate into the directory
+cd nauticstudio.xyz
+
+# 3. Install dependencies
+npm install
+```
+
+### Development
+Start the local development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser. The application supports hot-reloading.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+<br />
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ✦ Project Structure
 
-## Learn More
+```text
+nauticstudio.xyz/
+├── app/               # Next.js App Router (Pages, Layouts, APIs)
+├── public/            # Static assets (Images, Icons, Fonts)
+├── src/
+│   ├── components/    # Reusable UI components (Buttons, GlassCards, Modals)
+│   ├── lib/           # Utility functions and shared logic
+│   └── styles/        # Global CSS and Tailwind directives
+├── next.config.ts     # Next.js configuration
+└── tailwind.config.js # Tailwind theme design tokens
+```
 
-To learn more about Next.js, take a look at the following resources:
+<br />
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ✦ Philosophy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+At Nautic Studio, we build software that respects the user.
+*   **Native Performance**: We bypass bloated web-wrappers in favor of native macOS APIs.
+*   **Buy Once, Own Forever**: We reject the subscription model. You buy our software, you own it.
+*   **Uncompromising Design**: Every pixel is meticulously crafted to blend seamlessly into the Apple ecosystem.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<div align="center">
+  <br />
+  <i>Crafted with precision by the Nautic Team.</i>
+  <br />
+  <b><a href="https://twitter.com/nauticstudio">@nauticstudio</a></b>
+</div>
